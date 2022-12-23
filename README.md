@@ -1,6 +1,6 @@
 # Currency Exchange
 
-Before running the project you need to make docker-compose up which is placed in root folder of project. 
+Before running the project, you need to make docker-compose up which is placed in the root folder of the project.
 
 
 #### Third-party libraries used in the project:
@@ -28,4 +28,8 @@ Before running the project you need to make docker-compose up which is placed in
 - When an exchange rate is used it should never be older than 30 minutes (Bonus question)
   - For this purpose, I used TTL with a value of 30 minutes in redis cache.
 - Limiting each client to 10 currency exchange trades per hour (Bonus question)
-  - To deal with this requirement, I used the AspNetCoreRateLimit library. For now, I check the jwt of the token to specify a limited number of requests, but we can use userId instead of jwt in the defined middleware.
+  - To deal with this requirement, I used the AspNetCoreRateLimit library. For now, I check the jwt of the token to specify a limited number of requests, but we can use userId instead of jwt in the defined middleware. We are also able to define new rules or update existing ones inside DependencyInjecttion.cs of the web API project.
+
+#### Logging:
+
+I'm logging every request and response from the APIs. For logging purposes, I implement RequestResponseLogMiddleware. When a new request comes at the controller, I save the request parameters and response body in Elasticsearch. For visualize logs you can use http://localhost:5601/ URL and create index pattern with "currencyexchange-*" prefix.

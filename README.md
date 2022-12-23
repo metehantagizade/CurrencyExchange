@@ -1,1 +1,1 @@
-# CurrencyExchange
+# Net6CleanArchitecture

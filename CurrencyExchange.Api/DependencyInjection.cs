@@ -74,8 +74,8 @@ public static class DependencyInjection
                 new RateLimitRule
                 {
                     Endpoint = "*",
-                    Period = "10s",
-                    Limit = 2
+                    Period = "60m",
+                    Limit = 100
                 }
             };
         });

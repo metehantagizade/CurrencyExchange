@@ -29,7 +29,7 @@ Before running the project, you need to make **docker-compose up** which is plac
 - When an exchange rate is used it should never be older than 30 minutes (Bonus question)
   - For this purpose, I used TTL with a value of 30 minutes in redis cache.
 - Limiting each client to 10 currency exchange trades per hour (Bonus question)
-  - For now, I check the userId as a claim inside the token to specify a limited number of requests. We are also able to define new rules or update existing ones for specific APIs inside DependencyInjecttion.cs of the web API project.
+  - To deal with this requirement, I used the **AspNetCoreRateLimit** library.For now, I check the userId as a claim inside the token to specify a limited number of requests. We are also able to define new rules or update existing ones for specific APIs inside DependencyInjecttion.cs of the web API project.
 
 #### Logging:
 

@@ -13,6 +13,6 @@ public class CustomRateLimitConfiguration : RateLimitConfiguration
 
     public override void RegisterResolvers()
     {
-        ClientResolvers.Add(new QueryStringClientIdResolveContributor());
+        ClientResolvers.Add(new ClientIdResolveContributor());
     }
 }
